@@ -3,10 +3,10 @@
 ##What is it##
 [MarkDownX2](http://www.markdownx2.com "MarkDownX2") is a free, opensource markdown editor for Windows written in C# using .NET. It boasts a number of features which are not common in other markdown editors.
 
-##Updates##
+#Updates#
 
-#####1/4/2015 PM#####
----------
+##1/4/2015##
+
 1. Added in the toolbar and setup merging with the MDI form so the toolbar can be limited appropriately to what is actually available.
 2. Cleaned up a formatting bug.
 
