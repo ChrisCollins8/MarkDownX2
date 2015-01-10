@@ -19,6 +19,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtraMarkDown", "ExtraMarkD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkDownX2.ParserFramework", "MarkDownX2.ParserFramework\MarkDownX2.ParserFramework.csproj", "{41E0E689-0E2E-49E8-9EA9-93F8F94E0AFE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D71D6664-25B5-43E9-B896-5234CD5E9FA8}"
+	ProjectSection(SolutionItems) = preProject
+		MarkDownX2\MarkDownX2.md = MarkDownX2\MarkDownX2.md
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
