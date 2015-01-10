@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33754E02-0365-434F-8D90-6E0E2341C95B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarkDownX2</RootNamespace>
+    <AssemblyName>MarkDownX2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>markdownx2_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiproSoftware.Bars.WinForms, Version=14.1.321.0, Culture=neutral, PublicKeyToken=c27e062d3c1a4763, processorArchitecture=MSIL" />
+    <Reference Include="ActiproSoftware.Shared.WinForms, Version=14.1.321.0, Culture=neutral, PublicKeyToken=c27e062d3c1a4763" />
+    <Reference Include="Awesomium.Core, Version=1.7.4.2, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214" />
+    <Reference Include="Awesomium.Windows.Forms, Version=1.7.4.2, Culture=neutral, PublicKeyToken=9bd24830fbe304a0, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="GUI\Colors\MarkDownX2Colors.cs" />
+    <Compile Include="GUI\Colors\MarkDownX2Renderer.cs" />
+    <Compile Include="GUI\Forms\FormDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FormDocument.Designer.cs">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FormLink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FormLink.Designer.cs">
+      <DependentUpon>FormLink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\FormPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FormPreview.Designer.cs">
+      <DependentUpon>FormPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UserControls\Bevel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\ComboBoxItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\LabelEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\LabelEdit.designer.cs">
+      <DependentUpon>LabelEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DefaultsHelper.cs" />
+    <Compile Include="Helpers\DocumentsHelper.cs" />
+    <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Helpers\PathHelper.cs" />
+    <Compile Include="Helpers\PreviewHelper.cs" />
+    <Compile Include="Helpers\SuspendUpdate.cs" />
+    <Compile Include="Helpers\SyntaxHelper.cs" />
+    <Compile Include="Helpers\XmlMatchedTagHighlighter.cs" />
+    <Compile Include="Lexers\MarkdownLexer.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\Syntax.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Forms\FormDocument.resx">
+      <DependentUpon>FormDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FormLink.resx">
+      <DependentUpon>FormLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FormPreview.resx">
+      <DependentUpon>FormPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\LabelEdit.resx">
+      <DependentUpon>LabelEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="MarkDownX2.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarkdownDeep\MarkdownDeep.csproj">
+      <Project>{1569ed47-c7c9-4261-b6f4-7445bd0f2c95}</Project>
+      <Name>MarkdownDeep</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkDownX2.Library\MarkDownX2.Library.csproj">
+      <Project>{f9b0d780-fb00-47a8-a792-1ef933058ac3}</Project>
+      <Name>MarkDownX2.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkDownX2.ParserFramework\MarkDownX2.ParserFramework.csproj">
+      <Project>{41e0e689-0e2e-49e8-9ea9-93f8f94e0afe}</Project>
+      <Name>MarkDownX2.ParserFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScintillaNET\ScintillaNET.csproj">
+      <Project>{f9b6dabd-bbc1-4638-8ce6-a5c9506bfdcb}</Project>
+      <Name>ScintillaNET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
+      <Name>WinFormsUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\toolstrip.png" />
+    <None Include="Images\toolstrip_bg.png" />
+    <None Include="Images\statusbar_bg.png" />
+    <None Include="Images\toolbar_bg.png" />
+    <None Include="Images\menu_toolbar\bold.png" />
+    <None Include="Images\menu_toolbar\italic.png" />
+    <None Include="Images\menu_toolbar\quote.png" />
+    <None Include="Images\menu_toolbar\code.png" />
+    <None Include="Images\menu_toolbar\h1.png" />
+    <None Include="Images\menu_toolbar\h2.png" />
+    <None Include="Images\menu_toolbar\h3.png" />
+    <None Include="Images\menu_toolbar\h4.png" />
+    <None Include="Images\menu_toolbar\h5.png" />
+    <None Include="Images\menu_toolbar\h6.png" />
+    <None Include="Images\menu_toolbar\hyperlink.png" />
+    <None Include="Images\menu_toolbar\image.png" />
+    <None Include="Images\menu_toolbar\ul.png" />
+    <None Include="Images\menu_toolbar\ol.png" />
+    <None Include="Images\menu_toolbar\hr.png" />
+    <None Include="Images\menu_toolbar\timestamp.png" />
+    <None Include="Images\menu_toolbar\save.png" />
+    <None Include="Images\menu_toolbar\saveas.png" />
+    <None Include="Images\menu_toolbar\new.png" />
+    <None Include="Images\menu_toolbar\open.png" />
+    <None Include="Images\menu_toolbar\new_window.png" />
+    <None Include="Images\menu_toolbar\saveall.png" />
+    <None Include="Images\toolbar_top.png" />
+    <None Include="Images\menu_top.png" />
+    <Content Include="markdownx2_icon.ico" />
+    <Content Include="markdown_squared.ico" />
+    <Content Include="preview.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
