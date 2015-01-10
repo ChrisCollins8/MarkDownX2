@@ -3,7 +3,7 @@
 ![MarkDownX2](http://markdown.devnotepad.com/wp-content/uploads/2015/01/markdown_main_window.png)
 
 ##What is it##
-[MarkDownX2](http://www.markdownx2.com "MarkDownX2") is a free, opensource markdown editor for Windows written in C# using .NET. It boasts a number of features which are not common in other markdown editors.
+[MarkDownX2](http://markdown.devnotepad.com "MarkDownX2") is a free, opensource markdown editor for Windows written in C# using .NET. It boasts a number of features which are not common in other markdown editors.
 
 #Updates#
 
