@@ -102,7 +102,7 @@ namespace MarkDownX2.Helpers
             {
                 if (String.IsNullOrEmpty(_ReadmeFile))
                 {
-                    _ReadmeFile = Path.Combine(AppPath, "MarkdownX2.md");
+                    _ReadmeFile = Path.Combine(AppPath, "Readme.md");
                 }
                 return _ReadmeFile;
             }

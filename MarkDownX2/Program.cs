@@ -19,6 +19,9 @@ namespace MarkDownX2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //WordPressFileManager.FileManager fl = new WordPressFileManager.FileManager();
+            //fl.Execute();
+
             InitParsers();
 
             Application.Run(new FormMain());

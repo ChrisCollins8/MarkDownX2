@@ -155,11 +155,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="readme.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileManagerConnector\FileManagerConnector.csproj">
+      <Project>{ed6c1470-04e6-46e2-bb92-3ace79d72638}</Project>
+      <Name>FileManagerConnector</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MarkdownDeep\MarkdownDeep.csproj">
       <Project>{1569ed47-c7c9-4261-b6f4-7445bd0f2c95}</Project>
       <Name>MarkdownDeep</Name>
@@ -179,6 +186,10 @@
     <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
       <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
       <Name>WinFormsUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WordPressFileManager\WordPressFileManager.csproj">
+      <Project>{ce967f09-741d-47ab-ad8d-278f043fe27b}</Project>
+      <Name>WordPressFileManager</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

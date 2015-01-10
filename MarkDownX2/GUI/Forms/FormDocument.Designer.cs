@@ -129,11 +129,11 @@
             this.Editor.Indentation.TabWidth = 4;
             this.Editor.LineWrapping.IndentMode = ScintillaNET.LineWrappingIndentMode.Same;
             this.Editor.LineWrapping.Mode = ScintillaNET.LineWrappingMode.Word;
-            this.Editor.Location = new System.Drawing.Point(0, 25);
+            this.Editor.Location = new System.Drawing.Point(0, 49);
             this.Editor.Margins.Margin0.Width = 40;
             this.Editor.Margins.Margin1.Width = -1;
             this.Editor.Name = "Editor";
-            this.Editor.Size = new System.Drawing.Size(629, 390);
+            this.Editor.Size = new System.Drawing.Size(629, 397);
             this.Editor.Styles.BraceBad.FontName = "";
             this.Editor.Styles.BraceLight.FontName = "";
             this.Editor.Styles.ControlChar.FontName = "";
@@ -599,6 +599,7 @@
             this.ToolbarSearch.Size = new System.Drawing.Size(629, 31);
             this.ToolbarSearch.TabIndex = 15;
             this.ToolbarSearch.Text = "toolStrip1";
+            this.ToolbarSearch.Visible = false;
             // 
             // EditFind
             // 
@@ -650,7 +651,7 @@
             this.toolStripSeparator4,
             this.ButtonTimestamp});
             this.ToolbarMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.ToolbarMain.Location = new System.Drawing.Point(0, 0);
+            this.ToolbarMain.Location = new System.Drawing.Point(0, 24);
             this.ToolbarMain.Name = "ToolbarMain";
             this.ToolbarMain.Padding = new System.Windows.Forms.Padding(1);
             this.ToolbarMain.Size = new System.Drawing.Size(629, 25);
