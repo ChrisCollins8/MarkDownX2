@@ -21,6 +21,7 @@ namespace MarkDownX2.GUI.Forms
         private FormMain MainForm;
         private Syntax Styling;
         private DateTime lastUpdate = DateTime.UtcNow;
+        private int prevTopLine = 0;
 
         private string FileName = "";
 
@@ -33,12 +34,15 @@ namespace MarkDownX2.GUI.Forms
             FileName = fileName;
 
             InitializeComponent();
+            Configure();
         }
 
 
-        private void FormDocument_Load(object sender, EventArgs e)
+        #region Configuration
+
+        private void ConfigureEditor()
         {
-            SetStyle();
+            
             if (!String.IsNullOrEmpty(FileName) && File.Exists(FileName))
             {
                 Editor.Text = File.ReadAllText(FileName);
@@ -46,7 +50,55 @@ namespace MarkDownX2.GUI.Forms
                 Editor.UndoRedo.EmptyUndoBuffer();
             }
 
+
+
             Editor.NativeInterface.UpdateUI += NativeInterface_UpdateUI;
+        }
+
+        /// <summary>
+        /// Configures the editor/document settings based on the global settings.
+        /// Can be called externally so available to the GlobalSettings static
+        /// class.
+        /// </summary>
+        public void ReadSettings()
+        {
+            // Display or hide line numbers.
+            Editor.Margins[0].Width = (GlobalSettings.Settings.DisplayLineNumbers ? 40 : 0);
+
+            #region Formatting Marks (Whitespace/EOL Visibility)
+            if (GlobalSettings.Settings.DisplayFormattingMarks){
+                Editor.Whitespace.Mode = WhitespaceMode.VisibleAlways;
+                Editor.EndOfLine.IsVisible = true;
+            }
+            else
+            {
+                Editor.Whitespace.Mode = WhitespaceMode.Invisible;
+                Editor.EndOfLine.IsVisible = false;
+            }
+            #endregion
+
+            // Enable/disable line wrapping.
+            Editor.LineWrapping.Mode = (GlobalSettings.Settings.WordWrap ? LineWrappingMode.Word : LineWrappingMode.None);
+
+            SetStyle();
+            
+
+        }
+
+        /// <summary>
+        /// Call necessary configuration methods.
+        /// </summary>
+        private void Configure()
+        {
+            ConfigureEditor();
+            ReadSettings();
+        }
+
+        #endregion
+
+        private void FormDocument_Load(object sender, EventArgs e)
+        {
+            
         }
 
         /// <summary>
@@ -62,6 +114,20 @@ namespace MarkDownX2.GUI.Forms
 
         void NativeInterface_UpdateUI(object sender, NativeScintillaEventArgs e)
         {
+            
+            
+            #region Match Scrolling
+
+            if (prevTopLine != Editor.Lines.FirstVisible.Number){
+
+
+                PreviewHelper.SetScroll(GetScrollPercentage());
+            }
+            
+
+            #endregion
+
+
 
             #region Set statusbar info
 
@@ -87,63 +153,77 @@ namespace MarkDownX2.GUI.Forms
 
             #endregion
 
-            #region Highlight Selected word throughout document
 
-            Editor.NativeInterface.IndicatorClearRange(0, Editor.Text.Length);
+            #region Highlight current word in find box
 
             
+            #endregion
 
-            Editor.Indicators[8].Style = IndicatorStyle.RoundBox;
+            #region Highlight Selected word throughout document
 
-            XmlMatchedTagHighlighter.tagMatch(false, Editor);
-
-            //Editor.GetRange(0, Editor.Text.Length).SetIndicator(8, (int)Constants.INDIC_ROUNDBOX);
-            //Editor.NativeInterface.Style, Constants.INDIC_ROUNDBOX);
-            //Editor.
-            Editor.NativeInterface.SetIndicatorCurrent(8);
-            string selText = Editor.Selection.Text;
-            if (!String.IsNullOrEmpty(selText) && selText.Length > 0)
+            if ((String.IsNullOrEmpty(EditFind.Text) || ToolbarSearch.Visible == false) && !String.IsNullOrEmpty(Editor.Selection.Text))
             {
-                if (selText.AllWordChars())
+                Editor.Indicators[8].Style = IndicatorStyle.RoundBox;
+                XmlMatchedTagHighlighter.tagMatch(true, Editor);
+            }
+
+            if ((String.IsNullOrEmpty(EditFind.Text) || ToolbarSearch.Visible == false) && !String.IsNullOrEmpty(Editor.Selection.Text))
+            {
+                Editor.NativeInterface.IndicatorClearRange(0, Editor.Text.Length);
+
+
+
+                Editor.Indicators[8].Style = IndicatorStyle.RoundBox;
+
+                
+
+                //Editor.GetRange(0, Editor.Text.Length).SetIndicator(8, (int)Constants.INDIC_ROUNDBOX);
+                //Editor.NativeInterface.Style, Constants.INDIC_ROUNDBOX);
+                //Editor.
+                Editor.NativeInterface.SetIndicatorCurrent(8);
+                string selText = Editor.Selection.Text;
+                if (!String.IsNullOrEmpty(selText) && selText.Length > 0)
                 {
-                    int first = 0;
-
-                    int last = Editor.TextLength;
-
-                    Editor.NativeInterface.SetTargetStart(first);
-                    Editor.NativeInterface.SetTargetEnd(last);
-
-                    int i = Editor.NativeInterface.SearchInTarget(selText.Length, selText);
-
-                    int selStart = Editor.NativeInterface.GetSelectionStart();
-                    int selEnd = Editor.NativeInterface.GetSelectionEnd();
-
-                    int tmpStart = 0;
-
-
-                    if (selStart > selEnd)
+                    if (selText.AllWordChars())
                     {
-                        tmpStart = selStart;
-                        selStart = selEnd;
-                        selEnd = tmpStart;
-                    }
-                    while (i > -1)
-                    {
-                        if (i + selText.Length < selStart || i - selText.Length > selEnd)
-                        {
-                            Editor.NativeInterface.SetIndicatorCurrent(8);
-                            Editor.NativeInterface.IndicatorStart(8, i);
-                            Editor.NativeInterface.IndicatorEnd(8, i + selText.Length);
-                            Editor.NativeInterface.IndicatorFillRange(i, selText.Length);
-                        }
-                        first = i + selText.Length;
+                        int first = 0;
+
+                        int last = Editor.TextLength;
+
                         Editor.NativeInterface.SetTargetStart(first);
                         Editor.NativeInterface.SetTargetEnd(last);
-                        i = Editor.NativeInterface.SearchInTarget(selText.Length, selText);
+
+                        int i = Editor.NativeInterface.SearchInTarget(selText.Length, selText);
+
+                        int selStart = Editor.NativeInterface.GetSelectionStart();
+                        int selEnd = Editor.NativeInterface.GetSelectionEnd();
+
+                        int tmpStart = 0;
+
+
+                        if (selStart > selEnd)
+                        {
+                            tmpStart = selStart;
+                            selStart = selEnd;
+                            selEnd = tmpStart;
+                        }
+                        while (i > -1)
+                        {
+                            if (i + selText.Length < selStart || i - selText.Length > selEnd)
+                            {
+                                Editor.NativeInterface.SetIndicatorCurrent(8);
+                                Editor.NativeInterface.IndicatorStart(8, i);
+                                Editor.NativeInterface.IndicatorEnd(8, i + selText.Length);
+                                Editor.NativeInterface.IndicatorFillRange(i, selText.Length);
+                            }
+                            first = i + selText.Length;
+                            Editor.NativeInterface.SetTargetStart(first);
+                            Editor.NativeInterface.SetTargetEnd(last);
+                            i = Editor.NativeInterface.SearchInTarget(selText.Length, selText);
+                        }
                     }
                 }
             }
-
             #endregion
         }
 
@@ -156,10 +236,7 @@ namespace MarkDownX2.GUI.Forms
 
         }
 
-        void UpdateTimer_Tick(object sender, EventArgs e)
-        {
-
-        }
+        #region SetStyle
 
         public void SetStyle()
         {
@@ -187,47 +264,56 @@ namespace MarkDownX2.GUI.Forms
                 Editor.NativeInterface.StyleClearAll();
                 #endregion
 
-                foreach (MarkDownX2.Models.Style style in Styling.Styles)
+                if (GlobalSettings.Settings.SyntaxHighlighting)
                 {
+                    foreach (MarkDownX2.Models.Style style in Styling.Styles)
+                    {
 
 
-                    // Colors
-                    Editor.Styles[style.Key].ForeColor = style.ForeColor;
-                    Editor.Styles[style.Key].BackColor = style.BackColor;
+                        // Colors
+                        Editor.Styles[style.Key].ForeColor = style.ForeColor;
+                        Editor.Styles[style.Key].BackColor = style.BackColor;
 
-                    // Bold, italic, underline
+                        // Bold, italic, underline
 
-                    Editor.Styles[style.Key].Bold = style.Bold;
-                    Editor.Styles[style.Key].Italic = style.Italic;
-                    Editor.Styles[style.Key].Underline = style.Underline;
+                        Editor.Styles[style.Key].Bold = style.Bold;
+                        Editor.Styles[style.Key].Italic = style.Italic;
+                        Editor.Styles[style.Key].Underline = style.Underline;
 
-                    // Font/Size
-                    Editor.Styles[style.Key].FontName = style.FontName;
-                    Editor.Styles[style.Key].Size = style.FontSize;
+                        // Font/Size
+                        Editor.Styles[style.Key].FontName = style.FontName;
+                        Editor.Styles[style.Key].Size = style.FontSize;
 
-                    Editor.NativeInterface.StyleSetEOLFilled(style.Key, style.FillEOL);
-                    //Editor.Styles[style.Key].IsSelectionEolFilled = style.FillEOL;
+                        Editor.NativeInterface.StyleSetEOLFilled(style.Key, style.FillEOL);
+                        //Editor.Styles[style.Key].IsSelectionEolFilled = style.FillEOL;
 
+                    }
                 }
             }
-            Editor.NativeInterface.Colourise(0, -1);
+
 
             Editor.NativeInterface.StyleSetFore(Constants.STYLE_LINENUMBER, Utilities.ColorToRgb(Color.Black));
             Editor.NativeInterface.StyleSetBack(Constants.STYLE_LINENUMBER, Utilities.ColorToRgb(Color.White));
             Editor.NativeInterface.StyleSetFont(Constants.STYLE_LINENUMBER, "Consolas");
             Editor.NativeInterface.StyleSetSize(Constants.STYLE_LINENUMBER, 8);
 
+            Editor.NativeInterface.Colourise(0, -1);
+
             Editor.NativeInterface.SetTabWidth(4);
         }
 
+        #endregion
+
         private void Editor_DocumentChange(object sender, NativeScintillaEventArgs e)
         {
-
+            
             //if ((DateTime.UtcNow - lastUpdate).TotalSeconds >= 1)
             //{
-            if (!Editor.InTag()) { 
-            PreviewHelper.UpdateHtml(Editor.Text, GetScrollPercentage());
-                }
+            if (!Editor.InTag())
+            {
+                
+               // PreviewHelper.UpdateHtml(Editor.Text.Substring(Editor.Lines.FirstVisible.StartPosition, Editor.Lines.VisibleLines.LastOrDefault().EndPosition - Editor.Lines.FirstVisible.StartPosition), GetScrollPercentage());
+            }
             //}
 
 
@@ -504,17 +590,31 @@ namespace MarkDownX2.GUI.Forms
 
         private float GetScrollPercentage()
         {
-            int finalLastLine = Editor.Lines.VisibleLines.Last().Number;
-            int lastLine = 0;
-            if (Editor.Lines.VisibleLines.First().Number == 0)
-                lastLine = 0;
-            else if (Editor.Lines.VisibleLines.Last().Number >= Editor.Lines.Count-1)
-                lastLine = Editor.Lines.VisibleLines.Last().Number;
-            else 
-                lastLine = Editor.Lines.VisibleLines.First().Number + Editor.Lines.VisibleLines.Length;
-            int totalLines = Editor.Lines.Count;
+            
+            //int finalLastLine = Editor.Lines.VisibleLines.Last().Number;
+            int firstLine = Editor.Lines.FirstVisible.Number;
 
-            float result = ((float)((float)lastLine / (float)totalLines));
+            if (firstLine == 0)
+                return 0;
+
+            int linesVisible = Editor.Lines.VisibleCount;
+            int finalLastLine = firstLine + linesVisible;
+
+            int midLine = firstLine + (int)((finalLastLine - firstLine) / 2);
+            midLine = firstLine;
+            if (finalLastLine == linesVisible)
+                midLine = linesVisible;
+
+            //int lastLine = 0;
+            //if (Editor.Lines.VisibleLines.First().Number == 0)
+            //    lastLine = 0;
+            //else if (Editor.Lines.VisibleLines.Last().Number >= Editor.Lines.Count-1)
+            //    lastLine = Editor.Lines.VisibleLines.Last().Number;
+            //else 
+            //    lastLine = Editor.Lines.VisibleLines.First().Number + Editor.Lines.VisibleLines.Length;
+            //int totalLines = Editor.Lines.Count;
+
+            float result = ((float)((float)midLine / (float)Editor.Lines.Count));
             //if (result > .5)
             //{
             //    lastLine = Editor.Lines.VisibleLines.Last().Number;
@@ -525,8 +625,8 @@ namespace MarkDownX2.GUI.Forms
 
         private void Editor_Scroll(object sender, ScrollEventArgs e)
         {
-            string text = Editor.Lines.VisibleLines[Editor.Lines.VisibleLines.Length - 1].Text;
-            PreviewHelper.UpdateHtml(Editor.Text, GetScrollPercentage());           
+            //string text = Editor.Lines.VisibleLines[Editor.Lines.VisibleLines.Length - 1].Text;
+            //PreviewHelper.UpdateHtml(Editor.Text, GetScrollPercentage());           
         }
 
         private void Editor_KeyDown(object sender, KeyEventArgs e)
@@ -572,7 +672,7 @@ namespace MarkDownX2.GUI.Forms
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Editor.Selection.Text))
+           if (!String.IsNullOrEmpty(Editor.Selection.Text))
                 System.Windows.Forms.Clipboard.SetText(PreviewHelper.GetMarkdown(Editor.Selection.Text));
         }
 
@@ -713,7 +813,7 @@ namespace MarkDownX2.GUI.Forms
 
             Editor.NativeInterface.IndicatorClearRange(0, Editor.Text.Length);
 
-
+            
 
             Editor.Indicators[8].Style = IndicatorStyle.RoundBox;
             string selText = EditFind.Text;
@@ -760,6 +860,106 @@ namespace MarkDownX2.GUI.Forms
         private void EditFind_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Editor_TextChanged(object sender, EventArgs e)
+        {
+            if (!Editor.InTag())
+                PreviewHelper.UpdateHtml(Editor.Text, GetScrollPercentage());
+        
+        }
+
+        private void Editor_Paint(object sender, PaintEventArgs e)
+        {
+ 
+        }
+
+        private void EditFind_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A && e.Modifiers == Keys.Control)
+            {
+                EditFind.SelectAll();
+            }
+        }
+
+        #region Handle shortcuts for main edit and find box.
+
+        /// <summary>
+        /// Override the ProcessCmdKey so the expected hot keys can be trapped
+        /// on the find edit when it has focus and process those commands for
+        /// EditFind instead of the shortcuts defined in the main menus.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (EditFind.Focused)
+            {
+                if (keyData.HasFlag(Keys.Control))
+                {
+                    // Ctrl + C (Copy)
+                    if (keyData.HasFlag(Keys.C))
+                    {
+                        EditFind.Copy();
+                        return true;
+                    }
+                    // Ctrl + A (Select All)
+                    if (keyData.HasFlag(Keys.A))
+                    {
+                        EditFind.SelectAll();
+                        return true;
+                    }
+                    // Ctrl + V (Paste)
+                    if (keyData.HasFlag(Keys.V))
+                    {
+                        EditFind.Paste();
+                        return true;
+                    }
+                    // Ctrl + X (Cut)
+                    if (keyData.HasFlag(Keys.X))
+                    {
+                        
+                        EditFind.Cut();
+                        EditFind.SelectedText = "";
+                        return true;
+                    }
+                    // Ctrl + Z (Undo)
+                    if (keyData.HasFlag(Keys.Z))
+                    {
+                        EditFind.Undo();
+                        return true;
+                    }
+                    
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        #endregion
+       
+
+        private void ButtonCloseSearch_Click(object sender, EventArgs e)
+        {
+            ToolbarSearch.Visible = false;
+        }
+
+        private void EditFind_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditFind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                MessageBox.Show("Finding");
+            }
+        }
+
+        private void PanelHold_Click(object sender, EventArgs e)
+        {
+            Editor.Focus();
         }
     }
 }

@@ -14,5 +14,6 @@ namespace MarkDownX2.GUI.Colors
         {
             this.RoundedEdges = false;
         }
+
     }
 }

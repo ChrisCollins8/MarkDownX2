@@ -134,7 +134,7 @@ namespace MarkdownDeep
 
 						// Section Heading
 						b.Render(this, sb);
-
+                        
 						// Section Heading suffix
 						OnSectionHeadingSuffix(sb, iSection);
 					}
@@ -142,6 +142,7 @@ namespace MarkdownDeep
 					{
 						// Regular section
 						b.Render(this, sb);
+                        
 					}
 				}
 
@@ -853,6 +854,7 @@ namespace MarkdownDeep
 			m_StringScanner.Reset(str, start, len);
 			var p = m_StringScanner;
 			int pos = 0;
+            int cnt = 1;
 			while (!p.eof)
 			{
 				char ch = p.current;
@@ -874,6 +876,7 @@ namespace MarkdownDeep
 						dest.Append('\n');
 						pos = 0;
 						p.SkipEol();
+                        
 						continue;
 
 					case '&':

@@ -23,13 +23,21 @@ namespace MarkDownX2
             //fl.Execute();
 
             InitParsers();
+            LoadSettings();
 
             Application.Run(new FormMain());
+
+            GlobalSettings.WriteSettings();
         }
 
         private static void InitParsers()
         {
             PreviewHelper.Initialize();
+        }
+
+        private static void LoadSettings()
+        {
+            GlobalSettings.Initialize();
         }
     }
 }

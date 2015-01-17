@@ -39,6 +39,7 @@
             this.browser.Location = new System.Drawing.Point(0, 0);
             this.browser.Size = new System.Drawing.Size(284, 262);
             this.browser.TabIndex = 0;
+            this.browser.ShowJavascriptDialog += new Awesomium.Core.JavascriptDialogEventHandler(this.Awesomium_Windows_Forms_WebControl_ShowJavascriptDialog);
             // 
             // FormPreview
             // 

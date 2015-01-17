@@ -28,22 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin1 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient1 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient2 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient3 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient1 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient4 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient5 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient6 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient7 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin10 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin10 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient28 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient64 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin10 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient10 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient65 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient29 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient66 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient10 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient67 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient68 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient30 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient69 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient70 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            this.Notify = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ToolbarMain = new System.Windows.Forms.ToolStrip();
+            this.ButtonNew = new System.Windows.Forms.ToolStripButton();
+            this.ButtonOpen = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ButtonSaveAll = new System.Windows.Forms.ToolStripButton();
             this.statusMain = new System.Windows.Forms.StatusStrip();
             this.SelectParser = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -94,15 +101,56 @@
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DockingPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.ButtonNew = new System.Windows.Forms.ToolStripButton();
-            this.ButtonOpen = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.ButtonSaveAll = new System.Windows.Forms.ToolStripButton();
-            this.ToolbarMain = new System.Windows.Forms.ToolStrip();
+            this.ToolbarMain.SuspendLayout();
             this.statusMain.SuspendLayout();
             this.MenuMain.SuspendLayout();
-            this.ToolbarMain.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // Notify
+            // 
+            resources.ApplyResources(this.Notify, "Notify");
+            // 
+            // ToolbarMain
+            // 
+            this.ToolbarMain.BackgroundImage = global::MarkDownX2.Properties.Resources.toolbar_top;
+            this.ToolbarMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.ToolbarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ButtonNew,
+            this.ButtonOpen,
+            this.toolStripSeparator1,
+            this.ButtonSaveAll});
+            this.ToolbarMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            resources.ApplyResources(this.ToolbarMain, "ToolbarMain");
+            this.ToolbarMain.Name = "ToolbarMain";
+            this.ToolbarMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ToolbarMain_ItemClicked);
+            // 
+            // ButtonNew
+            // 
+            this.ButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ButtonNew.Image = global::MarkDownX2.Properties.Resources._new;
+            resources.ApplyResources(this.ButtonNew, "ButtonNew");
+            this.ButtonNew.Name = "ButtonNew";
+            this.ButtonNew.Click += new System.EventHandler(this.ButtonNew_Click);
+            // 
+            // ButtonOpen
+            // 
+            this.ButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ButtonOpen.Image = global::MarkDownX2.Properties.Resources.open;
+            resources.ApplyResources(this.ButtonOpen, "ButtonOpen");
+            this.ButtonOpen.Name = "ButtonOpen";
+            this.ButtonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // ButtonSaveAll
+            // 
+            this.ButtonSaveAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ButtonSaveAll.Image = global::MarkDownX2.Properties.Resources.saveall;
+            resources.ApplyResources(this.ButtonSaveAll, "ButtonSaveAll");
+            this.ButtonSaveAll.Name = "ButtonSaveAll";
             // 
             // statusMain
             // 
@@ -309,16 +357,19 @@
             // 
             this.livePreviewToolStripMenuItem.Name = "livePreviewToolStripMenuItem";
             resources.ApplyResources(this.livePreviewToolStripMenuItem, "livePreviewToolStripMenuItem");
+            this.livePreviewToolStripMenuItem.Click += new System.EventHandler(this.livePreviewToolStripMenuItem_Click);
             // 
             // fullScreenToolStripMenuItem
             // 
             this.fullScreenToolStripMenuItem.Name = "fullScreenToolStripMenuItem";
             resources.ApplyResources(this.fullScreenToolStripMenuItem, "fullScreenToolStripMenuItem");
+            this.fullScreenToolStripMenuItem.Click += new System.EventHandler(this.fullScreenToolStripMenuItem_Click);
             // 
             // horizontalLayoutToolStripMenuItem
             // 
             this.horizontalLayoutToolStripMenuItem.Name = "horizontalLayoutToolStripMenuItem";
             resources.ApplyResources(this.horizontalLayoutToolStripMenuItem, "horizontalLayoutToolStripMenuItem");
+            this.horizontalLayoutToolStripMenuItem.Click += new System.EventHandler(this.horizontalLayoutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem15
             // 
@@ -329,26 +380,31 @@
             // 
             this.displayLineNumbersToolStripMenuItem.Name = "displayLineNumbersToolStripMenuItem";
             resources.ApplyResources(this.displayLineNumbersToolStripMenuItem, "displayLineNumbersToolStripMenuItem");
+            this.displayLineNumbersToolStripMenuItem.Click += new System.EventHandler(this.displayLineNumbersToolStripMenuItem_Click);
             // 
             // displayFormattingMarksToolStripMenuItem
             // 
             this.displayFormattingMarksToolStripMenuItem.Name = "displayFormattingMarksToolStripMenuItem";
             resources.ApplyResources(this.displayFormattingMarksToolStripMenuItem, "displayFormattingMarksToolStripMenuItem");
+            this.displayFormattingMarksToolStripMenuItem.Click += new System.EventHandler(this.displayFormattingMarksToolStripMenuItem_Click);
             // 
             // wordWrapToolStripMenuItem
             // 
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
             resources.ApplyResources(this.wordWrapToolStripMenuItem, "wordWrapToolStripMenuItem");
+            this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
             // syntaxHighlightingToolStripMenuItem
             // 
             this.syntaxHighlightingToolStripMenuItem.Name = "syntaxHighlightingToolStripMenuItem";
             resources.ApplyResources(this.syntaxHighlightingToolStripMenuItem, "syntaxHighlightingToolStripMenuItem");
+            this.syntaxHighlightingToolStripMenuItem.Click += new System.EventHandler(this.syntaxHighlightingToolStripMenuItem_Click);
             // 
             // showColumnGuideToolStripMenuItem
             // 
             this.showColumnGuideToolStripMenuItem.Name = "showColumnGuideToolStripMenuItem";
             resources.ApplyResources(this.showColumnGuideToolStripMenuItem, "showColumnGuideToolStripMenuItem");
+            this.showColumnGuideToolStripMenuItem.Click += new System.EventHandler(this.showColumnGuideToolStripMenuItem_Click);
             // 
             // toolStripMenuItem16
             // 
@@ -359,11 +415,13 @@
             // 
             this.toolbarToolStripMenuItem.Name = "toolbarToolStripMenuItem";
             resources.ApplyResources(this.toolbarToolStripMenuItem, "toolbarToolStripMenuItem");
+            this.toolbarToolStripMenuItem.Click += new System.EventHandler(this.toolbarToolStripMenuItem_Click);
             // 
             // statusbarToolStripMenuItem
             // 
             this.statusbarToolStripMenuItem.Name = "statusbarToolStripMenuItem";
             resources.ApplyResources(this.statusbarToolStripMenuItem, "statusbarToolStripMenuItem");
+            this.statusbarToolStripMenuItem.Click += new System.EventHandler(this.statusbarToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -433,98 +491,56 @@
             this.DockingPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DockingPanel.Name = "DockingPanel";
             this.DockingPanel.ShowDocumentIcon = true;
-            dockPanelGradient1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
-            dockPanelGradient1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
-            autoHideStripSkin1.DockStripGradient = dockPanelGradient1;
-            tabGradient1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
-            tabGradient1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
-            tabGradient1.TextColor = System.Drawing.Color.White;
-            autoHideStripSkin1.TabGradient = tabGradient1;
-            autoHideStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 9F);
-            dockPanelSkin1.AutoHideStripSkin = autoHideStripSkin1;
-            tabGradient2.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient2.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient2.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient1.ActiveTabGradient = tabGradient2;
-            dockPanelGradient2.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(20)))), ((int)(((byte)(38)))));
-            dockPanelGradient2.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(20)))), ((int)(((byte)(38)))));
-            dockPaneStripGradient1.DockStripGradient = dockPanelGradient2;
-            tabGradient3.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            tabGradient3.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient3.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            tabGradient3.TextColor = System.Drawing.Color.White;
-            dockPaneStripGradient1.InactiveTabGradient = tabGradient3;
-            dockPaneStripSkin1.DocumentGradient = dockPaneStripGradient1;
-            dockPaneStripSkin1.TextFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tabGradient4.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            tabGradient4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient4.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            tabGradient4.TextColor = System.Drawing.Color.White;
-            dockPaneStripToolWindowGradient1.ActiveCaptionGradient = tabGradient4;
-            tabGradient5.EndColor = System.Drawing.Color.White;
-            tabGradient5.StartColor = System.Drawing.Color.White;
-            tabGradient5.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient1.ActiveTabGradient = tabGradient5;
-            dockPanelGradient3.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            dockPanelGradient3.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            dockPaneStripToolWindowGradient1.DockStripGradient = dockPanelGradient3;
-            tabGradient6.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            tabGradient6.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient6.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            tabGradient6.TextColor = System.Drawing.Color.White;
-            dockPaneStripToolWindowGradient1.InactiveCaptionGradient = tabGradient6;
-            tabGradient7.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            tabGradient7.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            tabGradient7.TextColor = System.Drawing.Color.White;
-            dockPaneStripToolWindowGradient1.InactiveTabGradient = tabGradient7;
-            dockPaneStripSkin1.ToolWindowGradient = dockPaneStripToolWindowGradient1;
-            dockPanelSkin1.DockPaneStripSkin = dockPaneStripSkin1;
-            this.DockingPanel.Skin = dockPanelSkin1;
+            dockPanelGradient28.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
+            dockPanelGradient28.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
+            autoHideStripSkin10.DockStripGradient = dockPanelGradient28;
+            tabGradient64.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
+            tabGradient64.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(73)))), ((int)(((byte)(106)))));
+            tabGradient64.TextColor = System.Drawing.Color.White;
+            autoHideStripSkin10.TabGradient = tabGradient64;
+            autoHideStripSkin10.TextFont = new System.Drawing.Font("Segoe UI", 9F);
+            dockPanelSkin10.AutoHideStripSkin = autoHideStripSkin10;
+            tabGradient65.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient65.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient65.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient10.ActiveTabGradient = tabGradient65;
+            dockPanelGradient29.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(20)))), ((int)(((byte)(38)))));
+            dockPanelGradient29.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(20)))), ((int)(((byte)(38)))));
+            dockPaneStripGradient10.DockStripGradient = dockPanelGradient29;
+            tabGradient66.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            tabGradient66.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient66.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            tabGradient66.TextColor = System.Drawing.Color.White;
+            dockPaneStripGradient10.InactiveTabGradient = tabGradient66;
+            dockPaneStripSkin10.DocumentGradient = dockPaneStripGradient10;
+            dockPaneStripSkin10.TextFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tabGradient67.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            tabGradient67.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient67.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            tabGradient67.TextColor = System.Drawing.Color.White;
+            dockPaneStripToolWindowGradient10.ActiveCaptionGradient = tabGradient67;
+            tabGradient68.EndColor = System.Drawing.Color.White;
+            tabGradient68.StartColor = System.Drawing.Color.White;
+            tabGradient68.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient10.ActiveTabGradient = tabGradient68;
+            dockPanelGradient30.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            dockPanelGradient30.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dockPaneStripToolWindowGradient10.DockStripGradient = dockPanelGradient30;
+            tabGradient69.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            tabGradient69.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient69.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            tabGradient69.TextColor = System.Drawing.Color.White;
+            dockPaneStripToolWindowGradient10.InactiveCaptionGradient = tabGradient69;
+            tabGradient70.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            tabGradient70.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            tabGradient70.TextColor = System.Drawing.Color.White;
+            dockPaneStripToolWindowGradient10.InactiveTabGradient = tabGradient70;
+            dockPaneStripSkin10.ToolWindowGradient = dockPaneStripToolWindowGradient10;
+            dockPanelSkin10.DockPaneStripSkin = dockPaneStripSkin10;
+            this.DockingPanel.Skin = dockPanelSkin10;
             this.DockingPanel.DockChanged += new System.EventHandler(this.DockingPanel_DockChanged);
             this.DockingPanel.SizeChanged += new System.EventHandler(this.DockingPanel_SizeChanged);
             this.DockingPanel.Resize += new System.EventHandler(this.DockingPanel_Resize);
-            // 
-            // ButtonNew
-            // 
-            this.ButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ButtonNew.Image = global::MarkDownX2.Properties.Resources._new;
-            resources.ApplyResources(this.ButtonNew, "ButtonNew");
-            this.ButtonNew.Name = "ButtonNew";
-            this.ButtonNew.Click += new System.EventHandler(this.ButtonNew_Click);
-            // 
-            // ButtonOpen
-            // 
-            this.ButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ButtonOpen.Image = global::MarkDownX2.Properties.Resources.open;
-            resources.ApplyResources(this.ButtonOpen, "ButtonOpen");
-            this.ButtonOpen.Name = "ButtonOpen";
-            this.ButtonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // ButtonSaveAll
-            // 
-            this.ButtonSaveAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ButtonSaveAll.Image = global::MarkDownX2.Properties.Resources.saveall;
-            resources.ApplyResources(this.ButtonSaveAll, "ButtonSaveAll");
-            this.ButtonSaveAll.Name = "ButtonSaveAll";
-            // 
-            // ToolbarMain
-            // 
-            this.ToolbarMain.BackgroundImage = global::MarkDownX2.Properties.Resources.toolbar_top;
-            this.ToolbarMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.ToolbarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ButtonNew,
-            this.ButtonOpen,
-            this.toolStripSeparator1,
-            this.ButtonSaveAll});
-            this.ToolbarMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            resources.ApplyResources(this.ToolbarMain, "ToolbarMain");
-            this.ToolbarMain.Name = "ToolbarMain";
-            this.ToolbarMain.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ToolbarMain_ItemClicked);
             // 
             // FormMain
             // 
@@ -541,12 +557,12 @@
             this.MdiChildActivate += new System.EventHandler(this.FormMain_MdiChildActivate_1);
             this.ResizeBegin += new System.EventHandler(this.FormMain_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.FormMain_ResizeEnd);
+            this.ToolbarMain.ResumeLayout(false);
+            this.ToolbarMain.PerformLayout();
             this.statusMain.ResumeLayout(false);
             this.statusMain.PerformLayout();
             this.MenuMain.ResumeLayout(false);
             this.MenuMain.PerformLayout();
-            this.ToolbarMain.ResumeLayout(false);
-            this.ToolbarMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,5 +625,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton ButtonSaveAll;
         private System.Windows.Forms.ToolStrip ToolbarMain;
+        private System.Windows.Forms.NotifyIcon Notify;
     }
 }

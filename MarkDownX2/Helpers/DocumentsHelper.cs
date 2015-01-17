@@ -21,6 +21,13 @@ namespace MarkDownX2.Helpers
             }
         }
 
+        public static void UpdateSettings()
+        {
+            foreach(FormDocument document in Documents){
+                document.ReadSettings();
+            }
+        }
+
         public static bool NewDocument(FormMain mainForm)
         {
             FormDocument newDoc = CreateDoc(mainForm);

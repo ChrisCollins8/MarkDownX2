@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDocument));
-            this.Editor = new ScintillaNET.Scintilla();
             this.DocMenu = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,6 +82,12 @@
             this.ToolbarSearch = new System.Windows.Forms.ToolStrip();
             this.EditFind = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.ButtonCloseSearch = new System.Windows.Forms.ToolStripButton();
+            this.Settings = new System.Windows.Forms.ToolStripDropDownButton();
+            this.wholeWordOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matchCaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.useRegexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.ToolbarMain = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -112,41 +117,14 @@
             this.ButtonLine = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.ButtonTimestamp = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.Editor)).BeginInit();
+            this.PanelHold = new System.Windows.Forms.Panel();
+            this.Editor = new ScintillaNET.Scintilla();
             this.DocMenu.SuspendLayout();
             this.ToolbarSearch.SuspendLayout();
             this.ToolbarMain.SuspendLayout();
+            this.PanelHold.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Editor)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Editor
-            // 
-            this.Editor.AutoClose.AutoCloseBraces = false;
-            this.Editor.AutoClose.AutoCloseHtmlTags = true;
-            this.Editor.AutoClose.AutoCloseQuotes = false;
-            this.Editor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Editor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Editor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.CPP;
-            this.Editor.Indentation.TabWidth = 4;
-            this.Editor.LineWrapping.IndentMode = ScintillaNET.LineWrappingIndentMode.Same;
-            this.Editor.LineWrapping.Mode = ScintillaNET.LineWrappingMode.Word;
-            this.Editor.Location = new System.Drawing.Point(0, 49);
-            this.Editor.Margins.Margin0.Width = 40;
-            this.Editor.Margins.Margin1.Width = -1;
-            this.Editor.Name = "Editor";
-            this.Editor.Size = new System.Drawing.Size(629, 397);
-            this.Editor.Styles.BraceBad.FontName = "";
-            this.Editor.Styles.BraceLight.FontName = "";
-            this.Editor.Styles.ControlChar.FontName = "";
-            this.Editor.Styles.Default.BackColor = System.Drawing.SystemColors.Window;
-            this.Editor.Styles.IndentGuide.FontName = "";
-            this.Editor.Styles.LastPredefined.FontName = "";
-            this.Editor.Styles.LineNumber.FontName = "";
-            this.Editor.TabIndex = 0;
-            this.Editor.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.Editor_CharAdded);
-            this.Editor.DocumentChange += new System.EventHandler<ScintillaNET.NativeScintillaEventArgs>(this.Editor_DocumentChange);
-            this.Editor.Scroll += new System.EventHandler<System.Windows.Forms.ScrollEventArgs>(this.Editor_Scroll);
-            this.Editor.StyleNeeded += new System.EventHandler<ScintillaNET.StyleNeededEventArgs>(this.Editor_StyleNeeded);
-            this.Editor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Editor_KeyDown);
             // 
             // DocMenu
             // 
@@ -592,6 +570,9 @@
             this.ToolbarSearch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditFind,
             this.toolStripSeparator6,
+            this.ButtonCloseSearch,
+            this.Settings,
+            this.toolStripSeparator7,
             this.toolStripButton2});
             this.ToolbarSearch.Location = new System.Drawing.Point(0, 415);
             this.ToolbarSearch.Name = "ToolbarSearch";
@@ -599,13 +580,15 @@
             this.ToolbarSearch.Size = new System.Drawing.Size(629, 31);
             this.ToolbarSearch.TabIndex = 15;
             this.ToolbarSearch.Text = "toolStrip1";
-            this.ToolbarSearch.Visible = false;
             // 
             // EditFind
             // 
+            this.EditFind.BackColor = System.Drawing.Color.White;
             this.EditFind.Name = "EditFind";
             this.EditFind.Size = new System.Drawing.Size(200, 23);
-            this.EditFind.Click += new System.EventHandler(this.EditFind_Click);
+            this.EditFind.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditFind_KeyDown);
+            this.EditFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditFind_KeyPress);
+            this.EditFind.Click += new System.EventHandler(this.EditFind_Click_1);
             this.EditFind.TextChanged += new System.EventHandler(this.EditFind_TextChanged);
             // 
             // toolStripSeparator6
@@ -613,10 +596,60 @@
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 23);
             // 
+            // ButtonCloseSearch
+            // 
+            this.ButtonCloseSearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ButtonCloseSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ButtonCloseSearch.Image = ((System.Drawing.Image)(resources.GetObject("ButtonCloseSearch.Image")));
+            this.ButtonCloseSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ButtonCloseSearch.Name = "ButtonCloseSearch";
+            this.ButtonCloseSearch.Size = new System.Drawing.Size(23, 20);
+            this.ButtonCloseSearch.Text = "toolStripButton2";
+            this.ButtonCloseSearch.Click += new System.EventHandler(this.ButtonCloseSearch_Click);
+            // 
+            // Settings
+            // 
+            this.Settings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Settings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wholeWordOnlyToolStripMenuItem,
+            this.matchCaseToolStripMenuItem,
+            this.useRegexToolStripMenuItem});
+            this.Settings.Image = ((System.Drawing.Image)(resources.GetObject("Settings.Image")));
+            this.Settings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Settings.Name = "Settings";
+            this.Settings.Size = new System.Drawing.Size(62, 20);
+            this.Settings.Text = "Settings";
+            // 
+            // wholeWordOnlyToolStripMenuItem
+            // 
+            this.wholeWordOnlyToolStripMenuItem.CheckOnClick = true;
+            this.wholeWordOnlyToolStripMenuItem.Name = "wholeWordOnlyToolStripMenuItem";
+            this.wholeWordOnlyToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.wholeWordOnlyToolStripMenuItem.Text = "Whole Word Only";
+            // 
+            // matchCaseToolStripMenuItem
+            // 
+            this.matchCaseToolStripMenuItem.CheckOnClick = true;
+            this.matchCaseToolStripMenuItem.Name = "matchCaseToolStripMenuItem";
+            this.matchCaseToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.matchCaseToolStripMenuItem.Text = "Match Case";
+            // 
+            // useRegexToolStripMenuItem
+            // 
+            this.useRegexToolStripMenuItem.CheckOnClick = true;
+            this.useRegexToolStripMenuItem.Name = "useRegexToolStripMenuItem";
+            this.useRegexToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.useRegexToolStripMenuItem.Text = "Use Regex";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 23);
+            // 
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Image = global::MarkDownX2.Properties.Resources.find;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 20);
@@ -651,7 +684,7 @@
             this.toolStripSeparator4,
             this.ButtonTimestamp});
             this.ToolbarMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.ToolbarMain.Location = new System.Drawing.Point(0, 24);
+            this.ToolbarMain.Location = new System.Drawing.Point(0, 0);
             this.ToolbarMain.Name = "ToolbarMain";
             this.ToolbarMain.Padding = new System.Windows.Forms.Padding(1);
             this.ToolbarMain.Size = new System.Drawing.Size(629, 25);
@@ -905,12 +938,53 @@
             this.ButtonTimestamp.Text = "Timestamp";
             this.ButtonTimestamp.Click += new System.EventHandler(this.ButtonTimestamp_Click);
             // 
+            // PanelHold
+            // 
+            this.PanelHold.BackColor = System.Drawing.Color.White;
+            this.PanelHold.Controls.Add(this.Editor);
+            this.PanelHold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelHold.Location = new System.Drawing.Point(0, 25);
+            this.PanelHold.Name = "PanelHold";
+            this.PanelHold.Padding = new System.Windows.Forms.Padding(5);
+            this.PanelHold.Size = new System.Drawing.Size(629, 390);
+            this.PanelHold.TabIndex = 16;
+            this.PanelHold.Click += new System.EventHandler(this.PanelHold_Click);
+            // 
+            // Editor
+            // 
+            this.Editor.AutoClose.AutoCloseBraces = false;
+            this.Editor.AutoClose.AutoCloseHtmlTags = true;
+            this.Editor.AutoClose.AutoCloseQuotes = false;
+            this.Editor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Editor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Editor.Indentation.SmartIndentType = ScintillaNET.SmartIndent.XML;
+            this.Editor.Indentation.TabWidth = 4;
+            this.Editor.LineWrapping.IndentMode = ScintillaNET.LineWrappingIndentMode.Same;
+            this.Editor.LineWrapping.Mode = ScintillaNET.LineWrappingMode.Word;
+            this.Editor.Location = new System.Drawing.Point(5, 5);
+            this.Editor.Margins.Margin0.Width = 40;
+            this.Editor.Margins.Margin1.Width = -1;
+            this.Editor.Name = "Editor";
+            this.Editor.Size = new System.Drawing.Size(619, 380);
+            this.Editor.Styles.BraceBad.FontName = "";
+            this.Editor.Styles.BraceLight.FontName = "";
+            this.Editor.Styles.ControlChar.FontName = "";
+            this.Editor.Styles.Default.BackColor = System.Drawing.SystemColors.Window;
+            this.Editor.Styles.IndentGuide.FontName = "";
+            this.Editor.Styles.LastPredefined.FontName = "";
+            this.Editor.Styles.LineNumber.FontName = "";
+            this.Editor.TabIndex = 1;
+            this.Editor.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.Editor_CharAdded);
+            this.Editor.StyleNeeded += new System.EventHandler<ScintillaNET.StyleNeededEventArgs>(this.Editor_StyleNeeded);
+            this.Editor.TextChanged += new System.EventHandler(this.Editor_TextChanged);
+            this.Editor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Editor_KeyDown);
+            // 
             // FormDocument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 446);
-            this.Controls.Add(this.Editor);
+            this.Controls.Add(this.PanelHold);
             this.Controls.Add(this.ToolbarSearch);
             this.Controls.Add(this.ToolbarMain);
             this.Controls.Add(this.DocMenu);
@@ -920,13 +994,14 @@
             this.Name = "FormDocument";
             this.Text = "FormDocument";
             this.Load += new System.EventHandler(this.FormDocument_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Editor)).EndInit();
             this.DocMenu.ResumeLayout(false);
             this.DocMenu.PerformLayout();
             this.ToolbarSearch.ResumeLayout(false);
             this.ToolbarSearch.PerformLayout();
             this.ToolbarMain.ResumeLayout(false);
             this.ToolbarMain.PerformLayout();
+            this.PanelHold.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Editor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -934,7 +1009,6 @@
 
         #endregion
 
-        private ScintillaNET.Scintilla Editor;
         private System.Windows.Forms.MenuStrip DocMenu;
         private System.Windows.Forms.ToolStripMenuItem formattingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem boldToolStripMenuItem;
@@ -1016,6 +1090,14 @@
         private System.Windows.Forms.ToolStrip ToolbarSearch;
         private System.Windows.Forms.ToolStripTextBox EditFind;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton ButtonCloseSearch;
+        private System.Windows.Forms.ToolStripDropDownButton Settings;
+        private System.Windows.Forms.ToolStripMenuItem wholeWordOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matchCaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem useRegexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.Panel PanelHold;
+        private ScintillaNET.Scintilla Editor;
     }
 }

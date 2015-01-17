@@ -12,6 +12,7 @@ using MarkDownX2.Helpers;
 using MarkDownX2.ParserFramework;
 using WeifenLuo.WinFormsUI.Docking;
 using MarkDownX2.GUI.UserControls;
+using System.Threading;
 
 namespace MarkDownX2.GUI.Forms
 {
@@ -25,13 +26,25 @@ namespace MarkDownX2.GUI.Forms
         {
             InitializeComponent();
             ToolStripManager.Renderer = new MarkDownX2Renderer();
+            StartUpdateCheck();
             LoadDockSetup();
             SetupParserList();
+            ReadSettings();
+        }
+
+        private void ReadSettings()
+        {
+            displayLineNumbersToolStripMenuItem.Checked = GlobalSettings.Settings.DisplayLineNumbers;
+            displayFormattingMarksToolStripMenuItem.Checked = GlobalSettings.Settings.DisplayFormattingMarks;
+            syntaxHighlightingToolStripMenuItem.Checked = GlobalSettings.Settings.SyntaxHighlighting;
+            fullScreenToolStripMenuItem.Checked = GlobalSettings.Settings.FullScreen;
+            wordWrapToolStripMenuItem.Checked = GlobalSettings.Settings.WordWrap;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
             DocumentsHelper.NewDocument(this);
+            
         }
 
         private void SetupParserList()
@@ -176,6 +189,110 @@ namespace MarkDownX2.GUI.Forms
                 };
             }
         }
+        
+
+        public void StartUpdateCheck()
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (sender, args) =>
+            {
+                labelDetails.Text = "Checking for updates...";
+                if (UpdateHelper.CheckForUpdate())
+                {
+                    Notify.BalloonTipTitle = "MarkDownX2 Update Available";
+                    Notify.Text = "MarkDownX2 Update Available. Click to Download";
+                    Notify.BalloonTipText = "There is an update available.\nClick here to download and install the latest version of MarkDownX2";
+                    Notify.Click += Notify_Click;
+                    Notify.BalloonTipClicked += Notify_BalloonTipClicked;
+                    Notify.ShowBalloonTip(10000);
+                }
+                else
+                {
+                    Notify.Visible = false;
+                }
+            };
+            worker.RunWorkerAsync();
+        }
+
+        void Notify_BalloonTipClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Downloading");
+        }
+
+        void Notify_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Downloading");
+        }
+
+
+        #region View Menu items
+
+        private void fullScreenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fullScreenToolStripMenuItem.Checked = !fullScreenToolStripMenuItem.Checked;
+            GlobalSettings.Settings.FullScreen = fullScreenToolStripMenuItem.Checked;
+        }
+
+        
+        private void displayLineNumbersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            displayLineNumbersToolStripMenuItem.Checked = !displayLineNumbersToolStripMenuItem.Checked;
+            GlobalSettings.Settings.DisplayLineNumbers = displayLineNumbersToolStripMenuItem.Checked;
+            GlobalSettings.UpdateSettings();
+        }
+
+        private void livePreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            livePreviewToolStripMenuItem.Checked = !livePreviewToolStripMenuItem.Checked;
+            
+        }
+
+        private void horizontalLayoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            horizontalLayoutToolStripMenuItem.Checked = !horizontalLayoutToolStripMenuItem.Checked;
+        }
+
+        private void displayFormattingMarksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            displayFormattingMarksToolStripMenuItem.Checked = !displayFormattingMarksToolStripMenuItem.Checked;
+            GlobalSettings.Settings.DisplayFormattingMarks = displayFormattingMarksToolStripMenuItem.Checked;
+            GlobalSettings.UpdateSettings();
+        }
+
+        private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            wordWrapToolStripMenuItem.Checked = !wordWrapToolStripMenuItem.Checked;
+            GlobalSettings.Settings.WordWrap = wordWrapToolStripMenuItem.Checked;
+            GlobalSettings.UpdateSettings();
+        }
+
+        private void syntaxHighlightingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            syntaxHighlightingToolStripMenuItem.Checked = !syntaxHighlightingToolStripMenuItem.Checked;
+            GlobalSettings.Settings.SyntaxHighlighting = syntaxHighlightingToolStripMenuItem.Checked;
+            GlobalSettings.UpdateSettings();
+        }
+
+        private void showColumnGuideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showColumnGuideToolStripMenuItem.Checked = !showColumnGuideToolStripMenuItem.Checked;
+            GlobalSettings.Settings.ShowColumnGuide = (showColumnGuideToolStripMenuItem.Checked ? 80 : 0);
+            GlobalSettings.UpdateSettings();
+        }
+
+        private void toolbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void statusbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
     }
 }
+
 

@@ -38,6 +38,8 @@ namespace MarkDownX2.Helpers
         public static List<IMarkdownParser> Parsers = new List<IMarkdownParser>();
         public static IMarkdownParser CurrentParser = null;
 
+        private static Thread UpdateThread = null;
+
         public static void Initialize()
         {
             string parserPath = PathHelper.ParserPath;
@@ -116,9 +118,18 @@ namespace MarkDownX2.Helpers
         public static void UpdateHtml(string source, float scrollPercentage)
         {
             previewForm.RenderHtml(CurrentParser.Parse(source), scrollPercentage);
-            //Previewer preview = new Previewer(source, previewForm, scrollPercentage);
-            //Thread th = new Thread(preview.Update);
-            //th.Start();
+            //if (UpdateThread == null || !UpdateThread.IsAlive)
+            //{
+            //    previewForm.RenderHtml(CurrentParser.Parse(source), scrollPercentage);
+            //    Previewer preview = new Previewer(source, previewForm, scrollPercentage);
+            //    UpdateThread = new Thread(preview.Update);
+            //    UpdateThread.Start();
+            //}
+        }
+
+        public static void SetScroll(float pos)
+        {
+            previewForm.ScrollPoint(pos);
         }
 
         public static string GetMarkdown(string source)

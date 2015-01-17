@@ -5,10 +5,23 @@
 
 #Updates#
 
+##1/17/2015##
+1. Implemented the reading/writing of the view settings as XML.
+2. Added a basic update mechanism which acts as a placeholder.
+
+
+##1/14/2015##
+1. Made some changes to the markdown lexer to clean up some issues with HTML formatting when dealing with tags after tabs. Initially tried to highlight tags as HTML despite being indented if inside of another html tag which wasn't indented. This worked but came with a significant performance hit. Opted instead to simply highlight all html tags regardless of beging in a code section or not.
+2. Finished the find tool.
+
+**Known Issues**
+1. Occasionally seeing misstyling of tabs on large documents. Being treated as a code block where not.
+
 ##1/4/2015##
 
 1. Added in the toolbar and setup merging with the MDI form so the toolbar can be limited appropriately to what is actually available.
 2. Cleaned up a formatting bug.
+
 
 ##Feature List##
 * Styling

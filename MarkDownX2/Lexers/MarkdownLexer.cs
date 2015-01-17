@@ -49,7 +49,8 @@ namespace MarkDownX2.Lexers
         private int StartPos = 0;
         private string WordChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const int _tabWidth = 4;
-        public static Regex LinkRegex = new Regex(@"\[\s*([a-zA-Z 0-9_-]+)\s*\]\s*\:?\s*(\S+( \""[^\""]*\"")?)+\s*("".*?"")?", RegexOptions.Compiled);
+        //public static Regex LinkRegex = new Regex(@"\[\s*([a-zA-Z 0-9_-]+)\s*\]\s*\:?\s*(\S+( \""[^\""]*\"")?)+\s*("".*?"")?", RegexOptions.Compiled);
+        public static Regex LinkRegex = new Regex(@"\[\s*([a-zA-Z 0-9:.""'(())/_-]+)\s*\]\s*\:?\s*(\S+( \""[^\""]*\"")?)+\s*("".*?"")?", RegexOptions.Compiled);
         public MarkdownLexer(Range _range, Scintilla _scintilla)
         {
             range = _range;
@@ -342,7 +343,49 @@ namespace MarkDownX2.Lexers
             }
         }
 
+        private void ColouriseInHtml(int endPos)
+        {
+            
         
+            while (Pos < endPos)
+            {
+                
+                StartStyling();
+                switch (getChar())
+                {
+                    case '#':
+                        processHeader();
+                        break;
+                    case '*':
+                        if (nextChar() == ' ' || nextChar() == '\t')
+                            StyleChar(MarkdownStyles.UnorderedList);
+                        else
+                            processAsterik();
+                        break;
+                    // HTML handling
+                    case '<':
+                        processHtml();
+                        break;
+                    case '>':
+                        StyleChar(MarkdownStyles.Bracket);
+                        break;
+                    case '[':
+                        processLink();
+                        break;
+                    case '`':
+                        processQuote();
+                        break;
+                    
+                    default:
+                        StyleChar(MarkdownStyles.Default);
+                        break;
+                }
+                Pos++;
+            }
+
+
+        
+        }
 
         private void processHtml()
         {
@@ -373,6 +416,14 @@ namespace MarkDownX2.Lexers
                 Pos++;
             }
             Pos--;
+            //XmlMatchedTagsPos xmlPos = new XmlMatchedTagsPos();
+            //if (Pos > 0){
+            //    MatchingTag.getXmlMatchedTagsPos(scintilla, ref xmlPos, false, Pos - 1);
+            //    if (xmlPos.tagCloseEnd > 0)
+            //    {
+            //        ColouriseInHtml(xmlPos.tagCloseEnd);
+            //    }
+            //}
             //if (getChar() == '>')
             //{
                 
@@ -434,18 +485,103 @@ namespace MarkDownX2.Lexers
             }
         }
 
+        private bool CheckInHtml(int startPos)
+        {
+            string innerText = scintilla.Text;
+            for (int i = startPos; i >= 0; i--)
+            {
+                if (innerText[i] == '<')
+                {
+                    char ch = '\0';
+                    if (i > 0)
+                        ch = innerText[i - 1];
+                    if (ch != '\t')
+                    {
+                        XmlMatchedTagsPos tagPos = new XmlMatchedTagsPos();
+                        if (MatchingTag.getXmlMatchedTagsPos(scintilla, ref tagPos, false, i + 1))
+                        {
+                            if (tagPos.tagCloseStart >= startPos)
+                                return true;
+                        }
+
+                    }
+                }
+
+            }
+            return false;
+        }
+
+        private char nextNonTabChar(){
+            for (int i = 0; i < Text.Length; i++)
+            {
+                if (Text[i] != '\t')
+                {
+                    return Text[i];
+                }
+            }
+            return '\0';
+        }
+
+        private int lengthNonTabChar()
+        {
+            int cnt = 0;
+            for (int i = 0; i < Text.Length; i++)
+            {
+                cnt++;
+                if (Text[i] != '\t')
+                {
+                    return cnt;
+                }
+
+            }
+            return cnt;
+        }
+
+        /// <summary>
+        /// Process a code block (Beginning with tab. Important, need to verify that
+        /// it is not currently inside of an html block which would allow tabs)
+        /// </summary>
         private void processCode()
         {
+
+            StartPos = Pos;
             char ch = prevChar();
+            // Deal with incorrect positioning 
+            if (getChar() != '\t')
+                return;
             if (ch == '\n' || ch == '\r' || ch == '\0')
             {
-                // Additional tabs are used to move lists in.
-                if (nextChar() == '*')
+
+                
+                
+                char charNext = nextNonTabChar();
+                // Block out lists, html or line ends.
+                // The html blocking is technically incorrect for markdown. It should only apply if
+                // currently in a valid Html tag but the performance impact was pretty significant when 
+                // working on larger files and trying to figure out if the code was inside of html so
+                // opted to treat all html as highlighted as html even if in code block. Rendering will
+                // display it as code, however. This could be optimized in the future.
+                if (charNext == '*' || charNext == '<' || charNext == '\r' || charNext == '\n' || charNext.IsNumeric() || charNext == '-')
+                {
+                    StartStyling();
+                    SetStyle(MarkdownStyles.Default, lengthNonTabChar());
+                    Pos = StartPos;
                     return;
+                }
+
+                
+                    
+
                 StringBuilder numTest = new StringBuilder();
-                StartPos = Pos;
+
+
+
+                
+
+                
                 StartStyling();
-                while (Pos < Length && getChar() != '\n' && getChar() != '\r' && getChar() != '\0')
+                
+                while (Pos < Length && getChar() != '\n' && getChar() != '\r' && getChar() != '\0' && !getChar().IsWordChar() && getChar() != '<')
                 {
                     numTest.Append(getChar());
                     Pos++;
@@ -502,6 +638,7 @@ namespace MarkDownX2.Lexers
                 StartStyling();
                 switch (getChar())
                 {
+                    
                     case '#':
                         processHeader();
                         break;
@@ -524,9 +661,7 @@ namespace MarkDownX2.Lexers
                     case '`':
                         processQuote();
                         break;
-                    case '\t':
-                        processCode();
-                        break;
+                    
                     case '0':
                     case '1':
                     case '2':
@@ -538,6 +673,10 @@ namespace MarkDownX2.Lexers
                     case '8':
                     case '9':
                         processOrderedList();
+                        break;
+                    case '\t':
+                        if (!CheckInHtml(Pos))
+                            processCode();
                         break;
                     default:
                         StyleChar(MarkdownStyles.Default);

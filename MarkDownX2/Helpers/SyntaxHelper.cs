@@ -22,25 +22,30 @@ namespace MarkDownX2.Helpers
             string line = curLine.Text;
             int col = Editor.GetColumn(cpos);
             int i = col;
-            while (i > 0)
+            while (i >= 0 && line.Length < col)
             {
-                if (line[i] == '<')
+                if (i >= 0 && i < line.Length)
                 {
-                    //for (int x = i; x < line.Length; x++)
-                    //{
-                    //    if (line[x] == '>')
-                    //        return false;
-                    //}
-                    return true;
-                }
+                    if (line[i] == '<')
+                    {
+                        //for (int x = i; x < line.Length; x++)
+                        //{
+                        //    if (line[x] == '>')
+                        //        return false;
+                        //}
+                        return true;
+                    }
 
-                if (line[i] == '>')
-                {
-                    return false;
+                    if (line[i] == '>')
+                    {
+                        return false;
+                    }
                 }
 
                 i--;
             }
+
+
             return false;
         }
 

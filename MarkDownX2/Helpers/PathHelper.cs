@@ -52,6 +52,19 @@ namespace MarkDownX2.Helpers
             }
         }
 
+        private static string _SettingsFile { get; set; }
+        public static string SettingsFile
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_SettingsFile))
+                {
+                    _SettingsFile = Path.Combine(StoragePath, "Settings.xml");
+                }
+                return _SettingsFile;
+            }
+        }
+
         private static string _ParserPath = "";
         /// <summary>
         /// Directory where parsers are stored.

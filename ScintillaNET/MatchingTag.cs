@@ -220,11 +220,14 @@ namespace ScintillaNET
 
 
 
-        public static bool getXmlMatchedTagsPos(Scintilla scintilla, ref XmlMatchedTagsPos xmlTags, bool prevChar)
+        public static bool getXmlMatchedTagsPos(Scintilla scintilla, ref XmlMatchedTagsPos xmlTags, bool prevChar, int currentPos = -1)
         {
 
             bool tagFound = false;
-            int caret = scintilla.NativeInterface.GetCurrentPos();
+            int caret = currentPos;
+            if (currentPos == -1)
+                caret = scintilla.NativeInterface.GetCurrentPos();
+
             if (prevChar)
             {
                 if (caret > 0)
@@ -272,6 +275,7 @@ namespace ScintillaNET
                         // Find the tag name.
                         int position = openFound.start + 2;
                         string tagName = "";
+                        
                         nextChar = scintilla.NativeInterface.GetCharAt(position);
                         while (position < docLength && !nextChar.IsWhiteSpace() && nextChar != '/' && nextChar != '>' && nextChar != '"' && nextChar != '\'')
                         {
@@ -279,6 +283,7 @@ namespace ScintillaNET
                             position++;
                             nextChar = scintilla.NativeInterface.GetCharAt(position);
                         }
+
                         if (!String.IsNullOrEmpty(tagName))
                         {
                             /* Now we need to find the open tag.  The logic here is that we search for "<TAGNAME",
