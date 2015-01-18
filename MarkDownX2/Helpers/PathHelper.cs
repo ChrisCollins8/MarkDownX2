@@ -120,5 +120,30 @@ namespace MarkDownX2.Helpers
                 return _ReadmeFile;
             }
         }
+
+        private static string _StyleSheetPath = null;
+        public static string StyleSheetPath
+        {
+            get
+            {
+                if (_StyleSheetPath == null)
+                {
+                    _StyleSheetPath = Path.Combine(StoragePath, "StyleSheets");
+                    if (!Directory.Exists(_StyleSheetPath))
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(_StyleSheetPath);
+                        }
+                        catch (Exception ex)
+                        {
+                            ExceptionHelper.Process(ex);
+                        }
+                    }
+                    
+                }
+                return _StyleSheetPath;
+            }
+        }
     }
 }

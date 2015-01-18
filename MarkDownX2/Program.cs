@@ -22,12 +22,17 @@ namespace MarkDownX2
             //WordPressFileManager.FileManager fl = new WordPressFileManager.FileManager();
             //fl.Execute();
 
-            InitParsers();
             LoadSettings();
+            InitParsers();
+
+            WordPressFileManager.FileManager mf = new WordPressFileManager.FileManager();
+            mf.Execute();
 
             Application.Run(new FormMain());
 
+
             GlobalSettings.WriteSettings();
+
         }
 
         private static void InitParsers()
@@ -38,6 +43,8 @@ namespace MarkDownX2
         private static void LoadSettings()
         {
             GlobalSettings.Initialize();
+            RunHelper.StartApp();
+            HtmlHelper.LoadStylesheets();
         }
     }
 }

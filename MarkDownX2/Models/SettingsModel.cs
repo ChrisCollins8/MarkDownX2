@@ -154,5 +154,21 @@ namespace MarkDownX2.Models
             }
         }
 
+        private string _DefaultCss = "github.css";
+        /// <summary>
+        /// Default stylesheet to use.
+        /// </summary>
+        public string DefaultCss
+        {
+            get
+            {
+                return _DefaultCss;
+            }
+            set
+            {
+                _DefaultCss = value;
+            }
+        }
+
     }
 }

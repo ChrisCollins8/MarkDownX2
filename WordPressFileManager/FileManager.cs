@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FileManagerConnector;
-using JoeBlogs;
+using WordPressSharp;
 
 
 namespace WordPressFileManager
@@ -20,36 +20,44 @@ namespace WordPressFileManager
             }
         }
 
-        public void Execute(){
-            WordPressWrapper wrapper = new WordPressWrapper("http://www.devnotepad.com/xmlrpc.php",
-                "devnotepad", "j!>!^C9blCi%A(H;u8uq181FH");
-
-            wrapper.UploadFile(new Data()
+        public bool AllowUpload
+        {
+            get
             {
-                Name = "beach.jpg",
-                Bits = System.IO.File.ReadAllBytes(@"c:\users\stewart\beach.jpg"),
-                Overwrite = true,
-                Type = "image/jpeg"
-            });
-
-            //wrapper.
-            //WordPressSiteConfig config = new WordPressSiteConfig(){
-            //    BaseUrl = "http://www.devnotepad.com",
-            //    BlogId = 1,
-            //    Password = "j!>!^C9blCi%A(H;u8uq181FH",
-            //    Username = "devnotepad"
-            //};
-            //WordPressClient client = new WordPressClient(config);
-            //string file = @"c:\users\stewart\beach.jpg";
-            //string name = Path.GetFileName(file);
-
-            //WordPressSharp.Models.MediaUpload upload = new WordPressSharp.Models.MediaUpload(config){
-            //    data = new WordPressSharp.Models.Data(name, "image/jpeg", File.ReadAllBytes(file), true)
-            //};
-
-            //string result = client.NewUpload(upload);
-            //Console.WriteLine(result);
-            //client.GetMediaItems().
+                return true;
+            }
         }
+        public bool HasConfig
+        {
+            get
+            {
+                return true;
+            }
+
+        }
+        public bool CanListFiles
+        {
+            get
+            {
+                return true;
+            }
+        }
+
+        public List<FileItem> GetFiles()
+        {
+            return new List<FileItem>();
+        }
+
+        public void Upload()
+        {
+
+        }
+
+        public void Settings()
+        {
+
+        }
+
+        
     }
 }

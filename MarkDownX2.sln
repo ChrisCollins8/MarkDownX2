@@ -28,7 +28,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagerConnector", "Fil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPressFileManager", "WordPressFileManager\WordPressFileManager.csproj", "{CE967F09-741D-47AB-AD8D-278F043FE27B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoeBlogs", "JoeBlogs\JoeBlogs.csproj", "{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordPressSharp", "WordPressSharp\WordPressSharp.csproj", "{7A938355-0B6B-48B7-97FB-C0C09015307B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -228,24 +228,24 @@ Global
 		{CE967F09-741D-47AB-AD8D-278F043FE27B}.Release|Win32.ActiveCfg = Release|Any CPU
 		{CE967F09-741D-47AB-AD8D-278F043FE27B}.Release|WithNRefactory.ActiveCfg = Release|Any CPU
 		{CE967F09-741D-47AB-AD8D-278F043FE27B}.Release|x64.ActiveCfg = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|Net35.ActiveCfg = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|Net40.ActiveCfg = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|WithNRefactory.ActiveCfg = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|Net35.ActiveCfg = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|Net40.ActiveCfg = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|Win32.ActiveCfg = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|WithNRefactory.ActiveCfg = Release|Any CPU
-		{340C4EC4-B02E-42A9-A8FE-2871ED8315E0}.Release|x64.ActiveCfg = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|Net35.ActiveCfg = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|Net40.ActiveCfg = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|WithNRefactory.ActiveCfg = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|Net35.ActiveCfg = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|Net40.ActiveCfg = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|Win32.ActiveCfg = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|WithNRefactory.ActiveCfg = Release|Any CPU
+		{7A938355-0B6B-48B7-97FB-C0C09015307B}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -70,6 +70,12 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="GUI\Colors\MarkDownX2Colors.cs" />
     <Compile Include="GUI\Colors\MarkDownX2Renderer.cs" />
+    <Compile Include="GUI\Forms\FileBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FileBrowser.Designer.cs">
+      <DependentUpon>FileBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\FormDocument.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="GUI\UserControls\ComboBoxItem.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\UserControls\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\UserControls\LabelEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,6 +121,8 @@
     <Compile Include="Helpers\GlobalSettings.cs" />
     <Compile Include="Helpers\PathHelper.cs" />
     <Compile Include="Helpers\PreviewHelper.cs" />
+    <Compile Include="Helpers\RunHelper.cs" />
+    <Compile Include="Helpers\HtmlHelper.cs" />
     <Compile Include="Helpers\SuspendUpdate.cs" />
     <Compile Include="Helpers\SyntaxHelper.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
@@ -122,6 +133,9 @@
     <Compile Include="Models\Syntax.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Forms\FileBrowser.resx">
+      <DependentUpon>FileBrowser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\FormDocument.resx">
       <DependentUpon>FormDocument.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +209,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="StyleSheets\github.css" />
+    <EmbeddedResource Include="DefaultParsers\ExtraMarkDown.dll" />
+    <EmbeddedResource Include="DefaultParsers\StandardMarkDown.dll" />
+    <EmbeddedResource Include="StyleSheets\jasonm23-dark.css" />
+    <EmbeddedResource Include="StyleSheets\jasonm23-foghorn.css" />
+    <EmbeddedResource Include="StyleSheets\jasonm23-markdown.css" />
+    <EmbeddedResource Include="StyleSheets\jasonm23-swiss.css" />
+    <EmbeddedResource Include="StyleSheets\markedapp-byword.css" />
+    <EmbeddedResource Include="StyleSheets\mixu-book.css" />
+    <EmbeddedResource Include="StyleSheets\mixu-page.css" />
+    <EmbeddedResource Include="StyleSheets\mixu-radar.css" />
+    <EmbeddedResource Include="StyleSheets\roryg-ghostwriter.css" />
+    <EmbeddedResource Include="StyleSheets\roryg-solarizedcssdark.css" />
+    <EmbeddedResource Include="StyleSheets\roryg-solarizedcsslight.css" />
     <None Include="Images\toolstrip.png" />
     <None Include="Images\toolstrip_bg.png" />
     <None Include="Images\statusbar_bg.png" />
@@ -225,6 +253,9 @@
     <None Include="Images\menu_top.png" />
     <None Include="Images\download_update.png" />
     <None Include="Images\find.png" />
+    <None Include="Images\Dialogs\hyperlink.png" />
+    <None Include="Images\Dialogs\link.png" />
+    <Content Include="Content\Html\FileBrowser.html" />
     <Content Include="markdownx2_icon.ico" />
     <Content Include="markdown_squared.ico" />
     <Content Include="preview.ico" />
@@ -246,6 +277,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

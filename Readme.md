@@ -7,6 +7,23 @@
 
 #Updates#
 
+##1/14/2015##
+1. Add preliminary support for multiple stylesheets.
+2. Update preview tool to support multiple stylesheets.
+3. Add default stylesheets and parsers as embedded resources to be copied to the correct directories at runtime.
+
+##1/08/2015##
+1. Implemented the reading/writing of the view settings as XML.
+2. Added a basic update mechanism which acts as a placeholder.
+
+
+##1/06/2015##
+1. Made some changes to the markdown lexer to clean up some issues with HTML formatting when dealing with tags after tabs. Initially tried to highlight tags as HTML despite being indented if inside of another html tag which wasn't indented. This worked but came with a significant performance hit. Opted instead to simply highlight all html tags regardless of beging in a code section or not.
+2. Finished the find tool.
+
+**Known Issues**
+1. Occasionally seeing misstyling of tabs on large documents. Being treated as a code block where not.
+
 ##1/4/2015##
 
 1. Added in the toolbar and setup merging with the MDI form so the toolbar can be limited appropriately to what is actually available.
@@ -51,6 +68,8 @@ MarkDownX2 offers Html highlighting, auto tag closing if desired and tag matchin
 ##Planned Features##
 * Spell checking
 * Port to Mono (The main issue with this is ScintillaNET. The docking library used can be ported to Mono but has no docking functionality but ScintillaNET will require some work to make Mono compatabile.
+* Improve the scroll synching. Currently it works on a rough estimate of the scroll percentage in the editor but the variable size in the display can impact this and on larger documents cause it to be off.
+
 
 ##Credits##
 * [MarkdownDeep](http://www.toptensoftware.com/markdowndeep/ "MarkdownDeep") - C# Markdown processor generates HTML from markdown.

@@ -51,9 +51,9 @@
       <Project>{ed6c1470-04e6-46e2-bb92-3ace79d72638}</Project>
       <Name>FileManagerConnector</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JoeBlogs\JoeBlogs.csproj">
-      <Project>{340c4ec4-b02e-42a9-a8fe-2871ed8315e0}</Project>
-      <Name>JoeBlogs</Name>
+    <ProjectReference Include="..\WordPressSharp\WordPressSharp.csproj">
+      <Project>{7a938355-0b6b-48b7-97fb-c0c09015307b}</Project>
+      <Name>WordPressSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

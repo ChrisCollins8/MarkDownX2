@@ -35,7 +35,7 @@
             // Label
             // 
             this.Label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Label.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label.Location = new System.Drawing.Point(0, 0);
             this.Label.Name = "Label";
             this.Label.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
