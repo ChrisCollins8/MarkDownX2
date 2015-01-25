@@ -9,6 +9,7 @@
 
 ##1/25/2015##
 1. Small tweaks to the filemanager interface.
+2. Switched from using webview to listview on filemanager.
 
 ##1/23/2015##
 1. Finalized some work on the wordpress filemanager.
