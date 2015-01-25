@@ -25,11 +25,13 @@ namespace MarkDownX2
             LoadSettings();
             InitParsers();
 
-            WordPressFileManager.FileManager mf = new WordPressFileManager.FileManager();
-            mf.Execute();
+
+            FormFileBrowser fileBrowser = new FormFileBrowser();
+            fileBrowser.ShowDialog();
 
             Application.Run(new FormMain());
 
+            
 
             GlobalSettings.WriteSettings();
 
@@ -40,11 +42,15 @@ namespace MarkDownX2
             PreviewHelper.Initialize();
         }
 
+
         private static void LoadSettings()
         {
             GlobalSettings.Initialize();
+            FileManagerHelper.Initialize();
             RunHelper.StartApp();
             HtmlHelper.LoadStylesheets();
+            // Initialize filemanagers
+            
         }
     }
 }

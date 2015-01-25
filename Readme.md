@@ -7,6 +7,14 @@
 
 #Updates#
 
+##1/23/2015##
+1. Finalized some work on the wordpress filemanager.
+2. Finalized some additional changes to the IFileManagerInterface interface.
+
+##1/18/2015##
+1. Started moving the filemanagement code into a seperate library.
+2. Setup the initial file management config settings model.
+
 ##1/14/2015##
 1. Add preliminary support for multiple stylesheets.
 2. Update preview tool to support multiple stylesheets.
@@ -69,6 +77,8 @@ MarkDownX2 offers Html highlighting, auto tag closing if desired and tag matchin
 * Spell checking
 * Port to Mono (The main issue with this is ScintillaNET. The docking library used can be ported to Mono but has no docking functionality but ScintillaNET will require some work to make Mono compatabile.
 * Improve the scroll synching. Currently it works on a rough estimate of the scroll percentage in the editor but the variable size in the display can impact this and on larger documents cause it to be off.
+
+Have been contimplating modifying the markdown library being used to generate the html from markdown to add a small span element with an id matching the line number currently being processed and then jumping to the right line.
 
 
 ##Credits##

@@ -108,6 +108,58 @@ namespace MarkDownX2.Helpers
             }
         }
 
+        private static string _FileManagerPath = null;
+        /// <summary>
+        /// Path to filemanager libraries
+        /// </summary>
+        public static string FileManagerPath
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_FileManagerPath))
+                {
+                    _FileManagerPath = Path.Combine(StoragePath, "FileManagers");
+                    if (!Directory.Exists(_FileManagerPath))
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(_FileManagerPath);
+                        }
+                        catch (Exception ex)
+                        {
+                            ExceptionHelper.Process(ex);
+                        }
+                    }
+                }
+                return _FileManagerPath;
+
+            }
+        }
+
+        private static string _FileManagerSettings = null;
+        public static string FileManagerSettings
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_FileManagerSettings))
+                {
+                    _FileManagerSettings = Path.Combine(StoragePath, "FileManagerSettings");
+                    if (!Directory.Exists(_FileManagerSettings))
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(_FileManagerSettings);
+                        }
+                        catch (Exception ex)
+                        {
+                            ExceptionHelper.Process(ex);
+                        }
+                    }
+                }
+                return _FileManagerSettings;
+            }
+        }
+
         private static string _ReadmeFile = "";
         public static string ReadmeFile
         {

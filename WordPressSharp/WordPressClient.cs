@@ -172,7 +172,6 @@ namespace WordPressSharp
         /// <returns></returns>
         public UploadResult UploadMedia(Data upload)
         {
-
             return WordPressService.UploadMedia(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, upload);
         }
 

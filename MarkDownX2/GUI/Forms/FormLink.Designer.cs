@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.panelWrapper = new System.Windows.Forms.Panel();
+            this.bevel = new Bevel.BevelControl();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.ButtonCancel = new System.Windows.Forms.Button();
             this.ButtonOk = new System.Windows.Forms.Button();
             this.panelAnchor = new System.Windows.Forms.Panel();
-            this.panelTitle = new System.Windows.Forms.Panel();
-            this.panelUrl = new System.Windows.Forms.Panel();
-            this.bevel = new Bevel.BevelControl();
             this.EditAnchor = new DevNotepad.UI.Controls.LabelEdit();
+            this.panelTitle = new System.Windows.Forms.Panel();
             this.EditTitle = new DevNotepad.UI.Controls.LabelEdit();
+            this.panelUrl = new System.Windows.Forms.Panel();
             this.EditUrl = new DevNotepad.UI.Controls.LabelEdit();
             this.gradientPanel1 = new MarkDownX2.GUI.UserControls.GradientPanel();
-            this.PictureIcon = new System.Windows.Forms.PictureBox();
-            this.LabelTitle = new System.Windows.Forms.Label();
             this.LabelDescription = new System.Windows.Forms.Label();
+            this.LabelTitle = new System.Windows.Forms.Label();
+            this.PictureIcon = new System.Windows.Forms.PictureBox();
             this.panelWrapper.SuspendLayout();
             this.panelButtons.SuspendLayout();
             this.panelAnchor.SuspendLayout();
@@ -65,6 +65,21 @@
             this.panelWrapper.Padding = new System.Windows.Forms.Padding(7);
             this.panelWrapper.Size = new System.Drawing.Size(471, 175);
             this.panelWrapper.TabIndex = 0;
+            // 
+            // bevel
+            // 
+            this.bevel.BevelStyle = Bevel.BevelStyle.Lowered;
+            this.bevel.BevelType = Bevel.BevelType.TopLine;
+            this.bevel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bevel.HighlightColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bevel.Location = new System.Drawing.Point(7, 127);
+            this.bevel.Name = "bevel";
+            this.bevel.Padding = new System.Windows.Forms.Padding(10);
+            this.bevel.ShadowColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bevel.Size = new System.Drawing.Size(457, 2);
+            this.bevel.TabIndex = 5;
+            this.bevel.TabStop = false;
+            this.bevel.Text = "bevelControl1";
             // 
             // panelButtons
             // 
@@ -109,41 +124,6 @@
             this.panelAnchor.Size = new System.Drawing.Size(457, 40);
             this.panelAnchor.TabIndex = 7;
             // 
-            // panelTitle
-            // 
-            this.panelTitle.Controls.Add(this.EditTitle);
-            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Location = new System.Drawing.Point(7, 47);
-            this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Padding = new System.Windows.Forms.Padding(8);
-            this.panelTitle.Size = new System.Drawing.Size(457, 40);
-            this.panelTitle.TabIndex = 6;
-            // 
-            // panelUrl
-            // 
-            this.panelUrl.Controls.Add(this.EditUrl);
-            this.panelUrl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUrl.Location = new System.Drawing.Point(7, 7);
-            this.panelUrl.Name = "panelUrl";
-            this.panelUrl.Padding = new System.Windows.Forms.Padding(8);
-            this.panelUrl.Size = new System.Drawing.Size(457, 40);
-            this.panelUrl.TabIndex = 4;
-            // 
-            // bevel
-            // 
-            this.bevel.BevelStyle = Bevel.BevelStyle.Lowered;
-            this.bevel.BevelType = Bevel.BevelType.TopLine;
-            this.bevel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bevel.HighlightColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bevel.Location = new System.Drawing.Point(7, 127);
-            this.bevel.Name = "bevel";
-            this.bevel.Padding = new System.Windows.Forms.Padding(10);
-            this.bevel.ShadowColor = System.Drawing.SystemColors.ButtonShadow;
-            this.bevel.Size = new System.Drawing.Size(457, 2);
-            this.bevel.TabIndex = 5;
-            this.bevel.TabStop = false;
-            this.bevel.Text = "bevelControl1";
-            // 
             // EditAnchor
             // 
             this.EditAnchor.Caption = "&Anchor Text:";
@@ -154,6 +134,16 @@
             this.EditAnchor.Size = new System.Drawing.Size(441, 25);
             this.EditAnchor.TabIndex = 0;
             // 
+            // panelTitle
+            // 
+            this.panelTitle.Controls.Add(this.EditTitle);
+            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitle.Location = new System.Drawing.Point(7, 47);
+            this.panelTitle.Name = "panelTitle";
+            this.panelTitle.Padding = new System.Windows.Forms.Padding(8);
+            this.panelTitle.Size = new System.Drawing.Size(457, 40);
+            this.panelTitle.TabIndex = 6;
+            // 
             // EditTitle
             // 
             this.EditTitle.Caption = "&Title (Optional):";
@@ -163,6 +153,16 @@
             this.EditTitle.Name = "EditTitle";
             this.EditTitle.Size = new System.Drawing.Size(441, 25);
             this.EditTitle.TabIndex = 0;
+            // 
+            // panelUrl
+            // 
+            this.panelUrl.Controls.Add(this.EditUrl);
+            this.panelUrl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelUrl.Location = new System.Drawing.Point(7, 7);
+            this.panelUrl.Name = "panelUrl";
+            this.panelUrl.Padding = new System.Windows.Forms.Padding(8);
+            this.panelUrl.Size = new System.Drawing.Size(457, 40);
+            this.panelUrl.TabIndex = 4;
             // 
             // EditUrl
             // 
@@ -189,16 +189,16 @@
             this.gradientPanel1.Size = new System.Drawing.Size(471, 60);
             this.gradientPanel1.TabIndex = 1;
             // 
-            // PictureIcon
+            // LabelDescription
             // 
-            this.PictureIcon.BackColor = System.Drawing.Color.Transparent;
-            this.PictureIcon.Image = global::MarkDownX2.Properties.Resources.link;
-            this.PictureIcon.Location = new System.Drawing.Point(1, -7);
-            this.PictureIcon.Name = "PictureIcon";
-            this.PictureIcon.Size = new System.Drawing.Size(64, 64);
-            this.PictureIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureIcon.TabIndex = 0;
-            this.PictureIcon.TabStop = false;
+            this.LabelDescription.AutoSize = true;
+            this.LabelDescription.BackColor = System.Drawing.Color.Transparent;
+            this.LabelDescription.ForeColor = System.Drawing.Color.White;
+            this.LabelDescription.Location = new System.Drawing.Point(74, 31);
+            this.LabelDescription.Name = "LabelDescription";
+            this.LabelDescription.Size = new System.Drawing.Size(319, 13);
+            this.LabelDescription.TabIndex = 2;
+            this.LabelDescription.Text = "Inserts a markdown formatted link with support for anchor and title.";
             // 
             // LabelTitle
             // 
@@ -212,16 +212,16 @@
             this.LabelTitle.TabIndex = 1;
             this.LabelTitle.Text = "Insert Link";
             // 
-            // LabelDescription
+            // PictureIcon
             // 
-            this.LabelDescription.AutoSize = true;
-            this.LabelDescription.BackColor = System.Drawing.Color.Transparent;
-            this.LabelDescription.ForeColor = System.Drawing.Color.White;
-            this.LabelDescription.Location = new System.Drawing.Point(74, 31);
-            this.LabelDescription.Name = "LabelDescription";
-            this.LabelDescription.Size = new System.Drawing.Size(319, 13);
-            this.LabelDescription.TabIndex = 2;
-            this.LabelDescription.Text = "Inserts a markdown formatted link with support for anchor and title.";
+            this.PictureIcon.BackColor = System.Drawing.Color.Transparent;
+            this.PictureIcon.Image = global::MarkDownX2.Properties.Resources.link;
+            this.PictureIcon.Location = new System.Drawing.Point(1, -7);
+            this.PictureIcon.Name = "PictureIcon";
+            this.PictureIcon.Size = new System.Drawing.Size(64, 64);
+            this.PictureIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureIcon.TabIndex = 0;
+            this.PictureIcon.TabStop = false;
             // 
             // FormLink
             // 

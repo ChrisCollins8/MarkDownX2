@@ -30,6 +30,12 @@ namespace FileManagerConnector
         bool AllowUpload { get; }
         bool HasConfig { get; }
         bool CanListFiles { get; }
+        bool RequiresUsername { get; }
+        bool RequiresPassword { get; }
+
+        string UserName { get; set; }
+        string Password { get; set; }
+        string Url { get; set; }
 
         /// <summary>
         /// Retreive a list of files and return with the thumb and url.
