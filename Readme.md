@@ -7,6 +7,9 @@
 
 #Updates#
 
+##1/25/2015##
+1. Small tweaks to the filemanager interface.
+
 ##1/23/2015##
 1. Finalized some work on the wordpress filemanager.
 2. Finalized some additional changes to the IFileManagerInterface interface.
