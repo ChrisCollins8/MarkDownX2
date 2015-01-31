@@ -457,7 +457,7 @@ namespace MarkDownX2.GUI.Forms
                     FileName = fileName;
                 }
             }                
-            catch (Exception ex)
+            catch
             {
                 // We are using the exception here because there is a chance that an exception is raised due
                 // when trying to write. If this happens display an error message and ask if they would like

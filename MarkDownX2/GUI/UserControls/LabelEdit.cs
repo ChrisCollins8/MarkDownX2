@@ -30,6 +30,18 @@ namespace DevNotepad.UI.Controls
             }
         }
 
+        public char PasswordChar
+        {
+            get
+            {
+                return TextBox.PasswordChar;
+            }
+            set
+            {
+                TextBox.PasswordChar = value;
+            }
+        }
+
         public string Caption
         {
             get

@@ -854,7 +854,7 @@ namespace MarkdownDeep
 			m_StringScanner.Reset(str, start, len);
 			var p = m_StringScanner;
 			int pos = 0;
-            int cnt = 1;
+            //int cnt = 1;
 			while (!p.eof)
 			{
 				char ch = p.current;

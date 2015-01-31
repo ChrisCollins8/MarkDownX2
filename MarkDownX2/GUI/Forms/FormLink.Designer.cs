@@ -131,6 +131,7 @@
             this.EditAnchor.Location = new System.Drawing.Point(8, 8);
             this.EditAnchor.MinimumSize = new System.Drawing.Size(0, 25);
             this.EditAnchor.Name = "EditAnchor";
+            this.EditAnchor.PasswordChar = '\0';
             this.EditAnchor.Size = new System.Drawing.Size(441, 25);
             this.EditAnchor.TabIndex = 0;
             // 
@@ -151,6 +152,7 @@
             this.EditTitle.Location = new System.Drawing.Point(8, 8);
             this.EditTitle.MinimumSize = new System.Drawing.Size(0, 25);
             this.EditTitle.Name = "EditTitle";
+            this.EditTitle.PasswordChar = '\0';
             this.EditTitle.Size = new System.Drawing.Size(441, 25);
             this.EditTitle.TabIndex = 0;
             // 
@@ -171,6 +173,7 @@
             this.EditUrl.Location = new System.Drawing.Point(8, 8);
             this.EditUrl.MinimumSize = new System.Drawing.Size(0, 25);
             this.EditUrl.Name = "EditUrl";
+            this.EditUrl.PasswordChar = '\0';
             this.EditUrl.Size = new System.Drawing.Size(441, 25);
             this.EditUrl.TabIndex = 2;
             // 

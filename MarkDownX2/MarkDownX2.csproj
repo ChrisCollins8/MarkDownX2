@@ -103,6 +103,12 @@
     <Compile Include="GUI\Forms\FormDocument.Designer.cs">
       <DependentUpon>FormDocument.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\FormFileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\FormFileManager.Designer.cs">
+      <DependentUpon>FormFileManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\FormLink.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="GUI\Forms\FormPreview.Designer.cs">
       <DependentUpon>FormPreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControls\AlphaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\UserControls\Bevel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -129,6 +138,12 @@
     </Compile>
     <Compile Include="GUI\UserControls\GradientPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\ComboEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\ComboEdit.designer.cs">
+      <DependentUpon>ComboEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserControls\LabelEdit.cs">
       <SubType>UserControl</SubType>
@@ -154,6 +169,7 @@
     <Compile Include="Helpers\XmlMatchedTagHighlighter.cs" />
     <Compile Include="Lexers\MarkdownLexer.cs" />
     <Compile Include="Models\FileManagerSettings.cs" />
+    <Compile Include="Models\FileResult.cs" />
     <Compile Include="Models\SettingsModel.cs" />
     <Compile Include="Models\Syntax.cs" />
     <Compile Include="Program.cs" />
@@ -164,6 +180,9 @@
     <EmbeddedResource Include="GUI\Forms\FormDocument.resx">
       <DependentUpon>FormDocument.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\FormFileManager.resx">
+      <DependentUpon>FormFileManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\FormLink.resx">
       <DependentUpon>FormLink.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\FormPreview.resx">
       <DependentUpon>FormPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\ComboEdit.resx">
+      <DependentUpon>ComboEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControls\LabelEdit.resx">
       <DependentUpon>LabelEdit.cs</DependentUpon>
@@ -219,6 +241,10 @@
     <ProjectReference Include="..\MarkDownX2.ParserFramework\MarkDownX2.ParserFramework.csproj">
       <Project>{41e0e689-0e2e-49e8-9ea9-93f8f94e0afe}</Project>
       <Name>MarkDownX2.ParserFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MarkDownX2.UILib\MarkDownX2.UILib.csproj">
+      <Project>{1df08066-02cb-4b0e-80b3-45e4f4adf9ae}</Project>
+      <Name>MarkDownX2.UILib</Name>
     </ProjectReference>
     <ProjectReference Include="..\ScintillaNET\ScintillaNET.csproj">
       <Project>{f9b6dabd-bbc1-4638-8ce6-a5c9506bfdcb}</Project>
@@ -281,6 +307,7 @@
     <None Include="Images\Dialogs\hyperlink.png" />
     <None Include="Images\Dialogs\link.png" />
     <EmbeddedResource Include="Content\Html\FileBrowser.html" />
+    <None Include="Images\Dialogs\file_manager.png" />
     <Content Include="markdownx2_icon.ico" />
     <Content Include="markdown_squared.ico" />
     <Content Include="preview.ico" />

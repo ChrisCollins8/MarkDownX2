@@ -26,9 +26,6 @@ namespace MarkDownX2
             InitParsers();
 
 
-            FormFileBrowser fileBrowser = new FormFileBrowser();
-            fileBrowser.ShowDialog();
-
             Application.Run(new FormMain());
 
             
